@@ -1,3 +1,5 @@
+@model List<MakersBnB.Models.Space>
+    // Import models form models (namespace and class for each space) as a list of Spaces,a like importing models importing django
 @{
     ViewData["Title"] = "Spaces";
 }
@@ -6,13 +8,16 @@
     <h1>Spaces</h1>
     <div>
     <ul>
+        @{
+            foreach (var space in Model) {
         <li>
-            <h2>@ViewBag.Listing1.Name</h2>
-            <p>@ViewBag.Listing1.Description</p>
-            <p>@ViewBag.Listing1.Bedrooms</p>
-            <p>@ViewBag.Listing1.Price</p>
-
+            <h2>@space.Name</h2>
+            <p>@space.Description</p>
+            <p>@space.Bedrooms</p>
+            <p>@space.Price</p>
+            <p>@space.Rules</p>
         </li>
+        }}
     </ul>
     </div>
 
