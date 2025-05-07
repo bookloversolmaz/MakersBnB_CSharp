@@ -23,5 +23,9 @@ public class SpacesController : Controller
         return View();
     }
     // controller code
+    public IActionResult New()
+    {
+    return View();
+    }
 
 }
