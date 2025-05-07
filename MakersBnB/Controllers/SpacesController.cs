@@ -17,7 +17,7 @@ public class SpacesController : Controller
     {
         // will try to find Spaces.cshtml in Views/Spaces or Views/Shared
         // Create an instance of Space with the required parameters
-        Space listing1 = new Space("Flat", "Cosy flat in the middle of London", 100);
+        Space listing1 = new Space("Flat", "Cosy flat in the middle of London", 2, 100);
         // Pass the instance to the ViewBag
         ViewBag.Listing1 = listing1;
         return View();

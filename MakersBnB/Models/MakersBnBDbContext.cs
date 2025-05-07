@@ -1,16 +1,34 @@
-namespace MakersBnB.Models;
+// namespace MakersBnB.Models;
+
+// using Microsoft.EntityFrameworkCore;
+// public class MakersBnBDbContext : DbContext
+// {
+
+//     public DbSet<Space>? Spaces { get; set; }
+
+//     private readonly string dbName = "makersbnb_aspdotnet_dev";
+
+//     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//     {
+//         // Only configure if not already done in Program.cs
+//         if (!optionsBuilder.IsConfigured)
+//         {
+//             var connectionString = $"Host=localhost;Username=solmazpurser;Database={dbName}";
+//             optionsBuilder.UseNpgsql(connectionString);
+//         }
+//     }
+// }
 using Microsoft.EntityFrameworkCore;
 
-public class MakersBnBDbContext : DbContext
+namespace MakersBnB.Models
 {
-    internal DbSet<Space>? Spaces { get; set; }
+    public class MakersBnBDbContext : DbContext
+    {
+        public MakersBnBDbContext(DbContextOptions<MakersBnBDbContext> options)
+            : base(options)
+        {
+        }
 
-    internal string? DbPath { get; }
-
-    internal string dbName = "makersbnb_aspdotnet_dev";
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseNpgsql(
-          @"Host=localhost;Username=postgres;Password=1234;Database=" + this.dbName
-        );
+        public DbSet<Space> Spaces { get; set; } = null!;
+    }
 }
