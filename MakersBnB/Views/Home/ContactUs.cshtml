@@ -1,0 +1,13 @@
+@{
+    ViewData["Title"] = "Contact Us Page";
+}
+<div>
+    <h1>Contact us</h1>
+    <ul>
+        @{
+            foreach(string email in ViewBag.ContactUs) {
+                <li>@email</li>
+            }
+        }
+    </ul>
+</div>
