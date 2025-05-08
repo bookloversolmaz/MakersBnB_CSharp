@@ -21,24 +21,35 @@ public class SignUpTests : PageTest
         await Page.GotoAsync("http://localhost:5163/users");
         await Expect(Page.GetByText("Users")).ToBeVisibleAsync();
     }
-    // New or sign up page
+    // New or sign up page loads and contains User heading
     [Test]
     public async Task SignUpPageLoadingCorrectly()
     {
         await Page.GotoAsync("http://localhost:5163/users/new");
         await Expect(Page.GetByText("Complete the sign up form")).ToBeVisibleAsync();
     }
-    //getbylabel types a value into to input field
+    //check that the form loads
+    [Test]
+    public async Task CheckThatTheFormLoads()
+    {
+        await Page.GotoAsync("http://localhost:5163/users/new");
+        await Expect(Page.GetByRole(AriaRole.Form)).ToBeVisibleAsync();
+    }
+
+    // fill out the form: getbylabel types a value into the input field to mimic user action
     [Test]
     public async Task CheckThatTheCorrectLabelsAreDisplayedInForm()
     {
         await Page.GotoAsync("http://localhost:5163/users/new");
         await Page.GetByLabel("Username").FillAsync("DAVE");
     }
-    //does the form accpet the right type of content? check using examples
+    
+    // submit the form
     [Test]
-    public async Task 
-
-
-
+    public async Task SubmitTheForm()
+    {
+        await Page.GotoAsync("http://localhost:5163/users/new");
+        await Page.GetByRole(AriaRole.Form, new() {Name = "Submit"}).ClickAsync();
+    }
+    
 }
