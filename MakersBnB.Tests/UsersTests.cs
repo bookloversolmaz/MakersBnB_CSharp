@@ -28,18 +28,16 @@ public class SignUpTests : PageTest
         await Page.GotoAsync("http://localhost:5163/users/new");
         await Expect(Page.GetByText("Complete the sign up form")).ToBeVisibleAsync();
     }
-    //use getbylabel to test the forms
-    //are the correct lables being displayed
+    //getbylabel types a value into to input field
     [Test]
     public async Task CheckThatTheCorrectLabelsAreDisplayedInForm()
     {
         await Page.GotoAsync("http://localhost:5163/users/new");
         await Page.GetByLabel("Username").FillAsync("DAVE");
     }
-
-
-
     //does the form accpet the right type of content? check using examples
+    [Test]
+    public async Task 
 
 
 
