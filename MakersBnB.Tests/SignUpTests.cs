@@ -1,5 +1,6 @@
 namespace MakersBnB.Tests;
 
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using Microsoft.Playwright;
 using Microsoft.Playwright.NUnit;
@@ -30,7 +31,14 @@ public class SignUpTests : PageTest
     //use getbylabel to test the forms
     //are the correct lables being displayed
     [Test]
-    public async tAS
+    public async Task CheckThatTheCorrectLabelsAreDisplayedInForm()
+    {
+        await Page.GotoAsync("http://localhost:5163/users/new");
+        await Page.GetByLabel("Username").FillAsync("DAVE");
+    }
+
+
+
     //does the form accpet the right type of content? check using examples
 
 
