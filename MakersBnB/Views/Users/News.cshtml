@@ -1,0 +1,23 @@
+@* Views/User/New.cshtml create the form, import the models username, email, password. Create test using getbylabel *@
+@* import Users model *@
+@model List<MakersBnB.Models.Users>
+
+@* action="/Spaces" tells the browser: When this form is submitted, send the form data to the /Spaces URL. method tells the browser to use
+post rather than get *@
+
+@* legend tag represents a caption for the contet of its parent fieldset *@
+<form action="/Users" method="post">
+    <fieldset>
+        <legend>Complete the sign up form</legend>
+        <div>
+            <label>Username<input type="text" name="username"/></label>
+        </div>
+        <div>
+            <label>Email <input type="text" name="email" /></label>
+        </div>
+        <div>
+            <label>Password <input type="text" name="password" /></label>
+        </div>
+        <input type="submit" value="Submit" class="submit" />
+    </fieldset>
+</form>

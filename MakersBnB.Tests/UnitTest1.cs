@@ -19,23 +19,26 @@ public class Tests : PageTest
     }
 
     [Test]
- public async Task HomePageIncludesWelcomeMessage() {
-     await Page.GotoAsync("http://localhost:5163");
+    public async Task HomePageIncludesWelcomeMessage() 
+    {
+        await Page.GotoAsync("http://localhost:5163");
 
-     await Expect(Page.GetByText("Welcome to MakersBnB!")).ToBeVisibleAsync();
+        await Expect(Page.GetByText("Welcome to MakersBnB!")).ToBeVisibleAsync();
     }
 
     [Test]
-public async Task ReviewsOnHomepage() {
-    await Page.GotoAsync("http://localhost:5163");
-    var reviews = Page.Locator("li.review");
-    await Expect(reviews).ToContainTextAsync(new string[] {"review 1", "review 2", "review 3"});
+    public async Task ReviewsOnHomepage() 
+    {
+        await Page.GotoAsync("http://localhost:5163");
+        var reviews = Page.Locator("li.review");
+        await Expect(reviews).ToContainTextAsync(new string[] {"review 1", "review 2", "review 3"});
     }
     [Test]
-public async Task PrivacyPageContainsAText() {
-    await Page.GotoAsync("http://localhost:5163/Home/Privacy");
-    await Expect(Page.GetByText("Pass the test")).ToBeVisibleAsync();
-}
+    public async Task PrivacyPageContainsAText() 
+    {
+        await Page.GotoAsync("http://localhost:5163/Home/Privacy");
+        await Expect(Page.GetByText("Pass the test")).ToBeVisibleAsync();
+    }
 
 } 
 
