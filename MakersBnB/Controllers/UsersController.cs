@@ -9,7 +9,7 @@ public class UsersController : Controller
     // Provides access to the database via the entity framework core
     private readonly MakersBnBDbContext _db;
 
-    // 
+    // ASP.NET automatically injects the logger and DB context, so that they can both be used in the class
     public UsersController(ILogger<SpacesController> logger, MakersBnBDbContext db)
     {
         _logger = logger;
@@ -39,6 +39,8 @@ public class UsersController : Controller
         _db.SaveChanges();
         return RedirectToAction("Spaces");
     }
+// look at space controller and create methods in spacecontroller. Create tests such as getbylabel
 
+// Controllers/UserController redirect to spaces when submitting form. Create test.
 
 }

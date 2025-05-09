@@ -51,5 +51,7 @@ public class SignUpTests : PageTest
         await Page.GotoAsync("http://localhost:5163/users/new");
         await Page.GetByRole(AriaRole.Button, new() {Name = "Submit"}).ClickAsync();
     }
+
+    //Create test to check that the usr
     
 }
