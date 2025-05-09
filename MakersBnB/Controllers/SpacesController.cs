@@ -1,5 +1,6 @@
 using MakersBnB.Models;
 using Microsoft.AspNetCore.Mvc;
+using MakersBnB.ActionFilters;
 
 namespace MakersBnB.Controllers;
 
@@ -22,11 +23,13 @@ public class SpacesController : Controller
         return View(spaces);
     }
     // new is the standard request for a for to create a new thing. The method below creates a new form, which is displayed in views/spaces/new
+    [ServiceFilter(typeof(AuthenticationFilter))]
     public IActionResult New()
     {
         return View();
     }
 
+    [ServiceFilter(typeof(AuthenticationFilter))]
     [Route("/Spaces")]
     [HttpPost]
     public IActionResult Create(Space space)
@@ -36,5 +39,4 @@ public class SpacesController : Controller
 
         return RedirectToAction("Index");
     }
-    // Get 
 }

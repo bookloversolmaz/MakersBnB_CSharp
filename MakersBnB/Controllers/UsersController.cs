@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MakersBnB.Controllers;
 public class UsersController : Controller
-{
+{ 
     // lets you log message for debugging or error tracking
     private readonly ILogger<SpacesController> _logger;
     // Provides access to the database via the entity framework core

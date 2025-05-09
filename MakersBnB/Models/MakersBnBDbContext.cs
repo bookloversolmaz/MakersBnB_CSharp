@@ -29,7 +29,8 @@ namespace MakersBnB.Models
         {
         }
 
-        public DbSet<Space>? Spaces { get; set; }
-        internal DbSet<Users>? Users { get; set; }
+        public DbSet<Space> Spaces { get; set; } = null!;
+        internal DbSet<Users> Users { get; set; } = null!;
+        internal DbSet<Sessions> Sessions { get; set; } = null!;
     }
 }

@@ -1,0 +1,21 @@
+@* Views/User/New.cshtml create the form, import the models username, email, password. Create test using getbylabel *@
+@* import Users model *@
+
+@* action="/Spaces" tells the browser: When this form is submitted, send the form data to the /Spaces URL. method tells the browser to use
+post rather than get *@
+
+@* legend tag represents a caption for the contet of its parent fieldset *@
+<form action="/Sessions" method="post" aria-label="Sign in form">
+    <fieldset>
+        <legend>Sign in</legend>
+        <div>
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" />
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="text" name="password" id="password" />
+        </div>
+        <input type="submit" value="Submit" class="submit" />
+    </fieldset>
+</form>
