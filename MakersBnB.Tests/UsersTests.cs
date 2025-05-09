@@ -52,6 +52,22 @@ public class SignUpTests : PageTest
         await Page.GetByRole(AriaRole.Button, new() {Name = "Submit"}).ClickAsync();
     }
 
-    //Create test to check that the usr
+    //Create test to check form redirect
+    [Test]
+    public async Task RedirectToSpacesAfterSubmittingForm()
+    {
+        await Page.GotoAsync("http://localhost:5163/users/new");
+        // Fill in the form
+        await Page.GetByLabel("Username").FillAsync("testuser");
+        await Page.GetByLabel("Email").FillAsync("test@example.com");
+        await Page.GetByLabel("Password").FillAsync("secret123");
+
+        // Submit the form
+        await Page.GetByRole(AriaRole.Button, new() { Name = "Submit" }).ClickAsync();
+
+        // Wait for the redirect to /Spaces
+        //(new Regex(".*/Spaces")) wait for the browsers url to match a specific pattern
+        await Page.WaitForURLAsync(new Regex(".*/Spaces"));
+    }
     
 }
