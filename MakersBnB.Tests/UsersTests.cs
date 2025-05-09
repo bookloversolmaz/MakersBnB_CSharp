@@ -49,7 +49,7 @@ public class SignUpTests : PageTest
     public async Task SubmitTheForm()
     {
         await Page.GotoAsync("http://localhost:5163/users/new");
-        await Page.GetByRole(AriaRole.Form, new() {Name = "Submit"}).ClickAsync();
+        await Page.GetByRole(AriaRole.Button, new() {Name = "Submit"}).ClickAsync();
     }
     
 }
